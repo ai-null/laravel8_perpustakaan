@@ -15,6 +15,7 @@ class BukuController extends Controller
      */
     public function __invoke(Request $request)
     {
-        return view('peminjam/buku/index');
+        // return view('peminjam/buku/index');
+        return view('index');
     }
 }
