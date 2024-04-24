@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\CekRoleController;
 use App\Http\Controllers\Peminjam\BukuController as PeminjamBukuController;
+use App\Http\Controllers\Guest\GuestController;
 use App\Http\Controllers\Peminjam\KeranjangController;
 use App\Http\Controllers\Petugas\BukuController;
 use App\Http\Controllers\Petugas\ChartController;
@@ -15,7 +16,9 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
 
+// making simple routes since there's no db calls
 Route::get('/', PeminjamBukuController::class);
+Route::get('/contacts', [App\Http\Controllers\Guest\GuestController::class, 'contacts']);
 
 Auth::routes();
 
@@ -38,6 +41,7 @@ Route::middleware(['auth'])->group(function () {
     // role peminjam
     Route::middleware(['role:peminjam'])->group(function () {
         Route::get('/keranjang', KeranjangController::class);
+        // Route::get('/dashboard', GuestController::class);
     });
 
     // role admin

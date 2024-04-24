@@ -59,6 +59,8 @@
 </head>
 
 <body>
+    @yield('background')
+
     <div id="app">
         <livewire:peminjam.kategori></livewire:peminjam.kategori>
 
